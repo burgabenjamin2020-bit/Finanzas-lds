@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Gastos Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Manrope', 'sans-serif'],
+            },
+            colors: {
+              'primary': {
+                'DEFAULT': '#723FEB',
+                'hover': '#5E2DD5',
+                'light': '#8B5CF6',
+                'subtle': '#E5D9FD',
+              },
+              'secondary': '#97E0F7',
+              
+              'background': '#FCFCFC',
+              'surface': '#ffffff',
+              'text-primary': '#1A1A1A',
+              'text-secondary': '#64748b',
+              'border': '#e2e8f0',
+              
+              'dark-background': '#1A1A1A',
+              'dark-surface': '#1e293b',
+              'dark-text-primary': '#FCFCFC',
+              'dark-text-secondary': '#cbd5e1',
+              'dark-border': '#334155',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      @keyframes scan-line-anim {
+        0% { top: -10%; }
+        100% { top: 110%; }
+      }
+      @keyframes highlight-anim {
+          0%, 100% { opacity: 0; transform: scale(0.95); }
+          50% { opacity: 0.7; transform: scale(1); }
+      }
+      @keyframes fade-in-up {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+      }
+      .animate-fade-in-up {
+          animation: fade-in-up 0.5s ease-out forwards;
+      }
+      .scanner-line {
+          position: absolute;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, rgba(114, 63, 235, 0) 0%, rgba(114, 63, 235, 1) 50%, rgba(114, 63, 235, 0) 100%);
+          box-shadow: 0 0 15px 2px #8B5CF6;
+          animation: scan-line-anim 3s infinite linear;
+          z-index: 10;
+      }
+      .text-highlight {
+          position: absolute;
+          background-color: rgba(114, 63, 235, 0.2);
+          border: 1px solid rgba(114, 63, 235, 0.6);
+          border-radius: 2px;
+          animation: highlight-anim 1.5s infinite ease-in-out;
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js`;
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.29.1",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-background dark:bg-dark-background text-text-primary dark:text-dark-text-primary">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

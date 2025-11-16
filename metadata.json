@@ -1,0 +1,5 @@
+{
+  "name": "Gestor de Gastos Pro",
+  "description": "Una aplicación para solicitar y rendir gastos de manera eficiente, con escaneo de boletas impulsado por IA y carga de evidencia fotográfica de actividades.",
+  "requestFramePermissions": []
+}
